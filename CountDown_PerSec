@@ -1,0 +1,14 @@
+__author__ = 'Yars'
+# -*- coding: utf8 -*-
+import time
+
+def countdown (n):
+    while n > 0:
+        yield n
+        n -=1
+
+c = countdown(60)
+
+for i in c:
+    time.sleep(1)
+    print(i)
