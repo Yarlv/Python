@@ -1,0 +1,23 @@
+__author__ = 'Yars'
+# -*- coding: utf8 -*-
+
+import urllib.request
+from bs4 import BeautifulSoup
+
+BASE_URL = 'http://music.yandex.ru/genre/metal/tracks'
+
+
+def get_html (url):
+    response = urllib.request.urlopen(url)
+    return response.read()
+
+def parse (html):
+    soup = BeautifulSoup (html,"")
+    table = soup.find('div', 'page-genre__tracks')
+    print(table)
+
+def main ():
+    print(get_html(BASE_URL))
+
+if __name__ == '__main__':
+    main()
